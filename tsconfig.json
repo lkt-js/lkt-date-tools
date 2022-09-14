@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "module": "es6",
+    "target": "es6",
+    "jsx": "preserve",
+    "allowJs": true,
+    "declaration": true,
+    "moduleResolution": "node"
+  }
+}
