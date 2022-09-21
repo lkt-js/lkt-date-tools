@@ -29,11 +29,11 @@ export const ymdToDate = (date: string) => {
   return null;
 };
 
-// export const isDate = (value: any): boolean => {
-//   return (
-//       value !== null &&
-//       value !== undefined &&
-//       Object.prototype.toString.call(value) === '[object Date]' &&
-//       !isNaN(value.getTime())
-//   );
-// };
+export const isDate = (value: any): boolean => {
+  return (
+    value !== null &&
+    value !== undefined &&
+    Object.prototype.toString.call(value) === '[object Date]' &&
+    !isNaN(value.getTime())
+  );
+};

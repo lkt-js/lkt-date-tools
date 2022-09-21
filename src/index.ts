@@ -1,6 +1,7 @@
 export {
   date,
   getDateByTimestamp,
+  isDate,
   isoToDate,
   ymdToDate,
 } from './functions/functions-date';
