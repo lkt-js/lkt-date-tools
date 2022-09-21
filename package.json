@@ -34,13 +34,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/lkt-ui/lkt-date-tools.git"
+    "url": "git+https://github.com/lekrat/lkt-date-tools.git"
   },
   "author": "Antonio Ibáñez <lkt.web.tech@gmail.com>",
   "license": "MIT",
-  "homepage": "https://gitlab.com/lkt-ui/lkt-date-tools#readme",
+  "homepage": "https://github.com/lekrat/lkt-date-tools#readme",
   "bugs": {
-    "url": "https://gitlab.com/lkt-ui/lkt-date-tools/issues"
+    "url": "https://github.com/lekrat/lkt-date-tools/issues"
   },
   "devDependencies": {
     "@babel/core": "^7.13.13",
