@@ -21,8 +21,8 @@ const g = 31536e3, i = [
   "December"
 ], a = /\\?(.?)/gi;
 function l({ date: e = new Date(), format: o = "" }) {
-  function c(r, n) {
-    return t[r] ? t[r]() : n;
+  function c(n, r) {
+    return t[n] ? t[n]() : r;
   }
   const t = {
     d() {
@@ -41,20 +41,20 @@ function l({ date: e = new Date(), format: o = "" }) {
       return t.w() || 7;
     },
     S() {
-      const r = t.j();
-      let n = r % 10;
-      return n <= 3 && parseInt(String(r % 100 / 10), 10) === 1 && (n = 0), ["st", "nd", "rd"][n - 1] || "th";
+      const n = t.j();
+      let r = n % 10;
+      return r <= 3 && parseInt(String(n % 100 / 10), 10) === 1 && (r = 0), ["st", "nd", "rd"][r - 1] || "th";
     },
     w() {
       return e.getDay();
     },
     z() {
-      const r = new Date(t.Y(), t.n() - 1, t.j()), n = new Date(t.Y(), 0, 1);
-      return Math.round((r - n) / 864e5);
+      const n = new Date(t.Y(), t.n() - 1, t.j()), r = new Date(t.Y(), 0, 1);
+      return Math.round((n - r) / 864e5);
     },
     W() {
-      const r = new Date(t.Y(), t.n() - 1, t.j() - t.N() + 3), n = new Date(r.getFullYear(), 0, 4);
-      return s(1 + Math.round((r - n) / 864e5 / 7), 2, "0");
+      const n = new Date(t.Y(), t.n() - 1, t.j() - t.N() + 3), r = new Date(n.getFullYear(), 0, 4);
+      return s(1 + Math.round((n - r) / 864e5 / 7), 2, "0");
     },
     F() {
       return i[6 + t.n()];
@@ -72,12 +72,12 @@ function l({ date: e = new Date(), format: o = "" }) {
       return new Date(t.Y(), t.n(), 0).getDate();
     },
     L() {
-      const r = t.Y();
-      return r % 4 === 0 & r % 100 !== 0 | r % 400 === 0;
+      const n = t.Y();
+      return n % 4 === 0 & n % 100 !== 0 | n % 400 === 0;
     },
     o() {
-      const r = t.n(), n = t.W();
-      return t.Y() + (r === 12 && n < 9 ? 1 : r === 1 && n > 9 ? -1 : 0);
+      const n = t.n(), r = t.W();
+      return t.Y() + (n === 12 && r < 9 ? 1 : n === 1 && r > 9 ? -1 : 0);
     },
     Y() {
       return e.getFullYear();
@@ -92,8 +92,8 @@ function l({ date: e = new Date(), format: o = "" }) {
       return t.a().toUpperCase();
     },
     B() {
-      const r = e.getUTCHours() * 3600, n = e.getUTCMinutes() * 60, u = e.getUTCSeconds();
-      return s(Math.floor((r + n + u + 3600) / 86.4) % 1e3, 3, "0");
+      const n = e.getUTCHours() * 3600, r = e.getUTCMinutes() * 60, u = e.getUTCSeconds();
+      return s(Math.floor((n + r + u + 3600) / 86.4) % 1e3, 3, "0");
     },
     g() {
       return t.G() % 12 || 12;
@@ -117,20 +117,20 @@ function l({ date: e = new Date(), format: o = "" }) {
       return s(e.getMilliseconds() * 1e3, 6, "0");
     },
     e() {
-      const r = "Not supported (see source code of date() for timezone on how to add support)";
-      throw new Error(r);
+      const n = "Not supported (see source code of date() for timezone on how to add support)";
+      throw new Error(n);
     },
     I() {
-      const r = new Date(t.Y(), 0), n = Date.UTC(t.Y(), 0), u = new Date(t.Y(), 6), D = Date.UTC(t.Y(), 6);
-      return r - n !== u - D ? 1 : 0;
+      const n = new Date(t.Y(), 0), r = Date.UTC(t.Y(), 0), u = new Date(t.Y(), 6), D = Date.UTC(t.Y(), 6);
+      return n - r !== u - D ? 1 : 0;
     },
     O() {
-      const r = e.getTimezoneOffset(), n = Math.abs(r);
-      return (r > 0 ? "-" : "+") + s(Math.floor(n / 60) * 100 + n % 60, 4, "0");
+      const n = e.getTimezoneOffset(), r = Math.abs(n);
+      return (n > 0 ? "-" : "+") + s(Math.floor(r / 60) * 100 + r % 60, 4, "0");
     },
     P() {
-      const r = t.O();
-      return `${r.substring(0, 3)}:${r.substring(3, 2)}`;
+      const n = t.O();
+      return `${n.substring(0, 3)}:${n.substring(3, 2)}`;
     },
     T() {
       return "UTC";
@@ -153,20 +153,21 @@ function l({ date: e = new Date(), format: o = "" }) {
 function T(e) {
   return e === void 0 ? new Date() : e instanceof Date ? new Date(e) : new Date(e * 1e3);
 }
-function Y(e) {
+function m(e) {
   const o = e.split(/\D/);
   return new Date(o[0], o[1] - 1, o[2], o[3], o[4], o[5]);
 }
-const f = (e, o = void 0) => l({ date: T(o), format: e }), m = (e) => e !== "" ? new Date(`${e}T00:00:00Z`) : null, p = (e) => e != null && Object.prototype.toString.call(e) === "[object Date]" && !isNaN(e.getTime()), M = () => new Date().getTime(), d = () => Date.now(), S = () => g, b = (e) => e * 1e3, h = (e) => e.getTime() / 1e3;
+const Y = (e, o = void 0) => l({ date: T(o), format: e }), f = (e) => e !== "" ? new Date(`${e}T00:00:00Z`) : null, p = (e) => e != null && Object.prototype.toString.call(e) === "[object Date]" && !isNaN(e.getTime()), M = () => new Date().getTime() / 1e3, d = () => new Date().getTime(), S = () => Date.now(), b = () => g, h = (e) => e * 1e3, O = (e) => e.getTime() / 1e3;
 export {
-  f as date,
-  h as dateToTimestamp,
+  Y as date,
+  O as dateToTimestamp,
   T as getDateByTimestamp,
-  S as getOneYearInSeconds,
-  d as getStampInMilliseconds,
+  b as getOneYearInSeconds,
+  S as getStampInMilliseconds,
   p as isDate,
-  Y as isoToDate,
-  b as secondsToMilliseconds,
+  m as isoToDate,
+  h as secondsToMilliseconds,
   M as time,
-  m as ymdToDate
+  d as timeInMilliseconds,
+  f as ymdToDate
 };

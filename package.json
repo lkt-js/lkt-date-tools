@@ -1,6 +1,6 @@
 {
   "name": "lkt-date-tools",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A collection of functions for working with dates",
   "main": "src/index.js",
   "module": "src/index.js",

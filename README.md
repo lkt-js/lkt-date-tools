@@ -55,7 +55,7 @@ const date = ymdToDate('2020-04-23');
 
 ### time
 
-Returns current time
+Returns current time (in seconds)
 
 #### Usage
 
@@ -64,6 +64,19 @@ import {time} from "lkt-date-tools";
 
 
 const stamp = time();
+```
+
+### timeInMilliseconds
+
+Returns current time (in milliseconds)
+
+#### Usage
+
+```js
+import {timeInMilliseconds} from "lkt-date-tools";
+
+
+const stamp = timeInMilliseconds();
 ```
 
 ### getStampInMilliseconds

@@ -11,4 +11,5 @@ export {
   getStampInMilliseconds,
   secondsToMilliseconds,
   time,
+  timeInMilliseconds,
 } from './functions/functions-time';
