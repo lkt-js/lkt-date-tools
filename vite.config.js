@@ -2,6 +2,7 @@ import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
 const src = resolve(__dirname, 'src');
+const outDir = resolve(__dirname, 'build');
 const test = resolve(__dirname, 'test');
 const snapshots = resolve(__dirname, 'snapshots');
 
@@ -14,8 +15,9 @@ export default {
     lib: {
       entry: `${src}/index.ts`,
       name: 'LktDateTools',
-      fileName: (format) => `lkt-date-tools.${format}.js`,
+      formats: ['es']
     },
+    outDir,
     minify: true,
     rollupOptions: {
       external: ['vue', 'lkt-ts-interfaces', 'lkt-string-tools'],
