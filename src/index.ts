@@ -10,6 +10,7 @@ export {
   getOneYearInSeconds,
   getStampInMilliseconds,
   secondsToMilliseconds,
+  secondsToTimeString,
   time,
   timeInMilliseconds,
 } from './functions/functions-time';

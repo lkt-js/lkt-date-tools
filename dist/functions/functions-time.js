@@ -1,4 +1,5 @@
 import { ONE_YEAR_IN_SECONDS } from '../constants';
+import { lpad } from 'lkt-string-tools';
 export const time = () => {
     return new Date().getTime() / 1000;
 };
@@ -16,4 +17,16 @@ export const secondsToMilliseconds = (n) => {
 };
 export const dateToTimestamp = (date) => {
     return date.getTime() / 1000;
+};
+export const secondsToTimeString = (n, includeHours = false) => {
+    //@ts-ignore
+    let hours = parseInt((n / 60) / 60, 10), 
+    //@ts-ignore
+    minutes = parseInt(n / 60, 10), 
+    //@ts-ignore
+    seconds = parseInt(n % 60, 10);
+    if (includeHours || n >= 3600) { // at least one hour
+        return `${lpad(hours, 2, '0')}:${lpad(minutes, 2, '0')}:${lpad(seconds, 2, '0')}`;
+    }
+    return `${lpad(minutes, 2, '0')}:${lpad(seconds, 2, '0')}`;
 };
